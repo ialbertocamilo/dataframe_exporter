@@ -1,0 +1,33 @@
+workspace = { members = ["performance"] }
+[package]
+name = "sql_exporter_rs"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+
+[dependencies]
+derive = "1.0.0"
+mysql = { version = "*", default-features = false, features = ["rustls-tls", "buffer-pool"] }
+flate2 = { version = "*", default-features = false, features = ["zlib"] }
+mysql_common = { version = "*", default-features = false, features = ["bigdecimal03", "time03", "uuid"] }
+polars = { version = "0.37.0",features = ["polars-io","ipc"] }
+reqwest = "0.12.4"
+serde_json = "1.0.116"
+bin = "0.1.4"
+tokio = { version = "1.37.0", features = ["rt", "rt-multi-thread", "macros"] }
+futures = { version = "0.3.30", features = ["thread-pool"] }
+rayon = "1.10.0"
+proc-macro2 = "1.0.81"
+syn = "2.0.60"
+performance = { path = "performance" }
+polars_excel_writer = "0.7.0"
+chrono = "0.4.38"
+ser-io = "0.3.0"
+sqlx = "0.7.4"
+sqlx-core = { version = "0.7.4", features = ["mysql"] }
+sqlx-rt = "0.6.3"
+
+[profile.release]
+opt-level = 3
