@@ -25,9 +25,5 @@ performance = { path = "performance" }
 polars_excel_writer = "0.7.0"
 chrono = "0.4.38"
 ser-io = "0.3.0"
-sqlx = "0.7.4"
-sqlx-core = { version = "0.7.4", features = ["mysql"] }
-sqlx-rt = "0.6.3"
-
 [profile.release]
 opt-level = 3
